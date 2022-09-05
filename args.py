@@ -21,17 +21,20 @@ class TrainArgs:
     loss_function: List[Literal['mse', 'cross_entropy', 'binary_cross_entropy']]
     metric: List[Literal['mse', 'mae', 'binary_accuracy', 'multiclass_accuracy']]
     early_stopping: int = 50
+   
     """For multiclass -> n_classes"""
     multiclass_num: List[int]
+    
     output_dim: List[int]
+    
     """Storing the mean and std for preprocessing"""
     scaler_path: List[str] = None
+    
     is_explicit_H: bool = False
+    
     """Load pretrained model"""
     pretrained_model: str = None
 
-    """shuffled nodes"""
-    is_shuffle: bool = False
 
     """NN model type"""
     NN: str = "MPNN" # or FFNN or Set2SetNN or ReadoutNN
