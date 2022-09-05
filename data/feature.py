@@ -128,7 +128,6 @@ class Mol2Graph:
 
         self.n_bonds = self.Mol.GetNumBonds()
         self.f_bonds = []
-        self.is_shuffle = False
         self.is_all_edges = False
 
     @property
@@ -153,12 +152,7 @@ class Mol2Graph:
         Add nodes into graph
         """
         self.Graph.add_nodes(self.n_atoms)
-        if not self.is_shuffle:
-            self.Graph.ndata["h"] = torch.Tensor(self.f_atoms)
-        else:
-            sh_f_atoms, sh_idx = self.shuffle_nodes(torch.Tensor(self.f_atoms))
-            self.Graph.ndata["h"] = sh_f_atoms
-            self.shuffle_idx = sh_idx
+        self.Graph.ndata["h"] = torch.Tensor(self.f_atoms)
 
 
     def addEdges(self):
@@ -184,53 +178,3 @@ class Mol2Graph:
         self.Graph.add_edges(self.bond_src, self.bond_dst)
         tb = torch.Tensor(self.f_bonds).squeeze(0)
         self.Graph.edata["h"] = tb
-
-    def shuffle_nodes(self, feats: torch.Tensor):
-        n_feats, idx = self._shuffle(feats, 0)
-        ## save shuffled idx
-        idx = [r[0] for r in idx.tolist()]
-        # smiles = Chem.MolToSmiles(self.Mol)
-        # log_path = f"shuffle/shuffle_compounds.csv"
-        # with open(log_path, "w") as f:
-        #     f.truncate()
-        # with open(log_path, "a") as f:
-        #     f.write(f"{smiles},{str(idx)[1:-1]}\n")
-        return n_feats, idx
-
-    def _shuffle(self, h: torch.Tensor, axis):
-        torch.manual_seed(1)
-        idx = torch.rand(h.shape[:axis + 1]).argsort(axis)  # get permutation indices
-        for _ in range(h.ndim - axis - 1):
-            idx.unsqueeze_(-1)
-        row_perm = idx.repeat(*[1 for _ in range(axis + 1)], *(h.shape[axis + 1:]))  # reformat this for the gather operation
-        return h.gather(axis, row_perm), idx
-
-
-
-if __name__ == "__main__":
-    PARAMS.EXPLICIT_H = True
-    mol = get_mol("O=c1[nH]c(=O)c2[nH]c(=O)[nH]c2[nH]1")
-    from rdkit.Chem import Draw
-    img = Draw.MolToImage(mol)
-    img.show()
-    print(PARAMS.BOND_FDIM)
-    graph = Mol2Graph(mol)
-    graph.is_all_edges = True
-    # graph.is_shuffle = True
-    graph.addNodes()
-    graph.addEdges()
-    # print(graph.Graph.ndata["h"][:, 110:].tolist())
-    # show= graph.Graph.edata["h"][:, :10].tolist()
-    # i = 0
-    import dgl
-    print(dgl.sum_nodes(graph.Graph, "h"))
-    # for u, v in zip(graph.bond_src, graph.bond_dst):
-    #     print(f"e{u}_{v}", show[i])
-    #     i += 1
-    import dgl
-
-    feats = torch.randn(PARAMS.BOND_FDIM)
-    q = torch.randn(PARAMS.ATOM_FDIM)
-    nx_g = graph.Graph.to_networkx()
-    nx.draw(nx_g, with_labels=True)
-    plt.show()
