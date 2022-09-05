@@ -52,7 +52,6 @@ def get_data(path: List[str] or List[pd.DataFrame], args: TrainArgs, load_graphs
                 continue
             graph = Mol2Graph(mol)
             graph.is_explicit_H = args.is_explicit_H
-            graph.is_shuffle = args.is_shuffle
 
             graph.addNodes()
             graph.addEdges()
@@ -108,33 +107,4 @@ def parse_type(target: List, dataset_type: str):
             return torch.stack(target).to(dtype=torch.float)
     else:
         return torch.stack(target).to(dtype=torch.long)
-
-
-# def split_data(data, test_size: float=0.1) -> Tuple[MolDataset, MolDataset] or Tuple[Data, Data]:
-#     """
-#     Split data into train and test dataset.
-#     Return torch.utils.Dataset or MolDataset
-#     """
-#     xdata = data[1] # Tuple
-#     idx = list(range(len(xdata)))
-#     train_idx, test_idx = train_test_split(idx, test_size=test_size, random_state=42)
-#
-#     train_ys = []
-#     test_ys = []
-#     for task in data:
-#         if isinstance(task, list):
-#             """List: graphs"""
-#             select_train_slices = [task[i] for i in train_idx]
-#             select_test_slices = [task[i] for i in test_idx]
-#         else:
-#             """tensor: fingerprints or properties"""
-#             select_train_slices = task[train_idx]
-#             select_test_slices = task[test_idx]
-#         train_ys.append(select_train_slices)
-#         test_ys.append(select_test_slices)
-#
-#     if isinstance(xdata[0], dgl.DGLGraph):
-#         return MolDataset(*train_ys), MolDataset(*test_ys)
-#     else:
-#         return Data(*train_ys), Data(*test_ys)
 
