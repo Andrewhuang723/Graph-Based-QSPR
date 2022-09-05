@@ -190,13 +190,6 @@ def OutputLayers(args: TrainArgs, input_dim, n_layers=3) -> List[nn.Module]:
         else:
             """Regression"""
             output.append(
-                # nn.Sequential(
-                #     nn.Linear(input_dim, args.node_hidden_dim),
-                #     nn.ReLU(),
-                #     nn.Linear(args.node_hidden_dim, args.node_hidden_dim),
-                #     nn.ReLU(),
-                #     nn.Linear(args.node_hidden_dim, output_dim),
-                # )
                 create_ffn(input_dim=input_dim, output_dim=output_dim, 
                            hidden_dim=args.node_hidden_dim, n_layers=n_layers)
             )
