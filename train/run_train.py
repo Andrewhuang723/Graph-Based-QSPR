@@ -121,9 +121,6 @@ def run_training(args: TrainArgs):
 
             train_dataset, test_dataset = SelectiveSample(train_dataset, test_dataset, idx)
 
-            if len(test_dataset) == 0: # all of the samples in training set is visited.
-                break
-
     else:
         dataset = MolDataset(*data)
         D = len(dataset)
