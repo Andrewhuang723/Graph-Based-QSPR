@@ -133,7 +133,6 @@ class PredictArgs:
     loss_function: List[Literal['mse', 'cross_entropy', 'binary_cross_entropy']]
     metric: List[Literal['mse', 'mae', 'binary_accuracy', 'multiclass_accuracy']]
     output_dim: List[int]
-    is_shuffle: bool = False
     output_hidden_states: bool = False
     output_predictions: bool = True
     save_graphs_path: str = None
