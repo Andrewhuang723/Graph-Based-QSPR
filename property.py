@@ -4,8 +4,8 @@ from args import TrainArgs, PredictArgs
 import pandas as pd
 from tools import *
 
-propName = "VLSTD"
-model_path = f"tests/explicit_H_{propName}_readout_sum_SS"
+propName = "homo"
+model_path = f"tests/{propName}_MODEL"
 
 train_arguments = TrainArgs()
 train_arguments.data_path = [f"tests/data/{propName}_train.csv"]
