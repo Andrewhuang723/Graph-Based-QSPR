@@ -16,20 +16,20 @@ valid_metric = ['mse', 'mae', 'binary_accuracy', 'multiclass_accuracy']
 
 def run_testing(args: PredictArgs, train_args: TrainArgs):
     if train_args.NN == "MPNN":
-        test_data = get_data(args.data_path, train_args, args.load_graphs_path, args.save_graphs_path)  # Tuple(graphs, targets, ...)
+        test_data = get_data(args.data_path, train_args, args.load_graphs_path, args.save_graphs_path)
         NN = MPNN
 
     elif train_args.NN == "Set2SetNN":
-        test_data = get_data(args.data_path, train_args, args.load_graphs_path, args.save_graphs_path)  # Tuple(graphs, targets, ...)
+        test_data = get_data(args.data_path, train_args, args.load_graphs_path, args.save_graphs_path)
         NN = Set2SetNN
 
     # Set2Set model
     elif train_args.NN == "ReadoutNN":
-        test_data = get_data(args.data_path, train_args, args.load_graphs_path, args.save_graphs_path)  # Tuple(graphs, targets, ...)
+        test_data = get_data(args.data_path, train_args, args.load_graphs_path, args.save_graphs_path)
         NN = ReadoutNN
 
     else:
-        test_data = get_prop_data(args.x_test_data_path, train_args)  # Tuple(graphs, targets, ...)
+        test_data = get_prop_data(args.x_test_data_path, train_args)
         NN = FFNN
 
     # Preprocessing on regression dataset type
