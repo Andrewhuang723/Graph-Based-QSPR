@@ -1,7 +1,7 @@
 # Graph-Based-QSPR
 A Deep Learning QSPR using graph neural networks for molecular property predictions.
 <p align="center">
-<img src="./docs/diagram.png", width="500" style="background-color:white;"/>
+<img src="./docs/diagram.png", width="500" style="background-color:blue;"/>
 </p>
 ## Usage:
 
