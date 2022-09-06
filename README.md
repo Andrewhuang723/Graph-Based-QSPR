@@ -1,8 +1,10 @@
 # Graph-Based-QSPR
 A Deep Learning QSPR using graph neural networks for molecular property predictions.
+
 <p align="center">
-<img src="./docs/diagram.png", width="1000" style="background-color:blue;"/>
+<img src="./docs/diagram.png", width="1000"/>
 </p>
+
 ## Usage:
 
 Run property.py
