@@ -9,15 +9,27 @@ A Deep Learning QSPR using graph neural networks for molecular property predicti
 
 Run property.py
 
-The following arguments are required.
-
 ### Training arguments
-
-1. data path: file path(s) of training dataset.
+**The following training arguments are required.**
+- data path: file path(s) of training dataset.
+- save path: save path: file path of trained model and other generated files.
+- model name: filename of the trained model
+- dataset type: task(s) of the target property, including classification, regression, fingerprint and smiles. 
+- task name: name(s) of the target property.
+- loss function
+- metric
+- output dimension
 ```
 train_arguments.data_path = ["train_file.csv"]
+train_arguments.save_path = "save_path"
+train_arguments.model_name = "model_name.pkl"
+train_arguments.dataset_type = ["regression"]
+train_arguments.task_names = ["homo"]
+train_arguments.loss_function = ["mse"]
+train_arguments.loss_function = ["mse"]
+train_arguments.output_dim = [1]
 ```
-  The csv file format:
+ *csv format of training (or testing) dataset file:
 
 | smiles                             | homo         | 
 | ---------------------------------- | ------------ | 
@@ -27,50 +39,20 @@ train_arguments.data_path = ["train_file.csv"]
 | FC(F)(F)/C=C/C(F)(F)F	             | -7.633827539 |
 | CSCCC(C)C	                         | -5.002214491 | 
 
-2. save path: file path of trained model and other generated files.
-```
-train_arguments.save_path = "save_path"
-```
-3. model name: filename of the trained model
-```
-train_arguments.model_name = "model_name.pkl"
-```
-4. dataset type: task(s) of the target property, including classification, regression, fingerprint and smiles. 
-```
-train_arguments.dataset_type = ["regression"]
-```
-5. task name: name(s) of the target property.
-```
-train_arguments.task_names = ["homo"]
-```
-6. loss function:
-```
-train_arguments.loss_function = ["mse"]
-```
-7. metric:
-```
-train_arguments.loss_function = ["mse"]
-```
-8. output dimension:
-```
-train_arguments.output_dim = [1]
-```
-
 ### Testing arguments
-1. data path: file path(s) of testing dataset.
+**The following testing arguments are required.**
+- data path: file path(s) of testing dataset.
+- save path: file path(s) of prediction results.
+- model path: file path of the model for prediction.
+- dataset type: task(s) of the target property, including classification, regression, fingerprint and smiles. 
+- task name: name(s) of the target property.
+- loss function
+- metric
+- output dimension
 ```
 test_arguments.data_path = ["test_file.csv"]
-```
-2. save path: file path(s) of prediction results.
-```
 test_arguments.save_path = ["test_pred.csv"]
-```
-3. model path: file path of the model for prediction.
-```
 test_arguments.model_path = "model.pkl"
-```
-4. dataset type, task name, loss function and metric were same as training arguments:
-```
 test_arguments.task_names = [propName]
 test_arguments.dataset_type = ["regression"]
 test_arguments.loss_function = ["mse"]
