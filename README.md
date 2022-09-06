@@ -101,4 +101,4 @@ test_arguments.load_graphs_path = "test_graphs.bin"
 
 ### Molecule property prediction results
 
-results directory: <a href="./tests/TC"></a>
+results directory: <a href="./tests/TC"> TC results directory</a>
