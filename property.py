@@ -4,8 +4,8 @@ from args import TrainArgs, PredictArgs
 import pandas as pd
 from tools import *
 
-propName = "homo"
-model_path = f"tests/{propName}_MODEL"
+propName = "TC"
+model_path = f"tests/{propName}"
 
 train_arguments = TrainArgs()
 train_arguments.data_path = [f"tests/data/{propName}_train.csv"]
@@ -23,7 +23,6 @@ train_arguments.scaler_path = [f"tests/data/{propName}_scaler.csv"] # mean & std
 train_arguments.output_dim = [1]
 train_arguments.loss_function = ["mse"]
 train_arguments.metric = ["mae"]
-train_arguments.readout = "sum"
 # train_arguments.selective_sampling = {"M": 0.2, "N": 5, "task": propName} # execute if using selective sampling.
 
 test_arguments = PredictArgs()
