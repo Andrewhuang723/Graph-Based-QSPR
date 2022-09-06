@@ -31,15 +31,16 @@ train_arguments.loss_function = ["mse"]
 train_arguments.loss_function = ["mse"]
 train_arguments.output_dim = [1]
 ```
- *csv format of training (or testing) dataset file:*
-
-| smiles                             | homo         | 
+ **csv format of training (or testing) dataset file:**
+ 
+| smiles                             | TC         | 
 | ---------------------------------- | ------------ | 
-| Cc1ccnc2c1NC(=O)c1cccnc1N2C1CC1	   | -5.383582052 |
-| c1ccc2c(c1)CCCO2	                 | -5.325213632 |
-| CCCCCCCCCCCCCCC(C)=O	             | -5.490713275 |
-| FC(F)(F)/C=C/C(F)(F)F	             | -7.633827539 |
-| CSCCC(C)C	                         | -5.002214491 | 
+| C(C([N+](=O)[O-])([N+](=O)[O-])F)N(CC([N+](=O)[O-])([N+](=O)[O-])F)C(=O)OCC([N+](=O)[O-])([N+](=O)[O-])F	   | 939.0 |
+| CCCCCCCCCCCCCCCCCCC1=C(C=CC(=C1)C)C	                 | 795.0 |
+| C1C(COC1=O)O	             | 679.0 |
+| COC1=CC=C(C=C1)C=C(C#N)C2=CC=CC=C2	             | 888.0 |
+| CC1=CC=CC(C=C1)(C)C	                         | 656.0 | 
+| CCCCOC(=O)C(Cl)Cl           | 655.0 |
 
 **Other training arguments**
 - save graphs path: save the file path of graphs according to training samples (compounds).
