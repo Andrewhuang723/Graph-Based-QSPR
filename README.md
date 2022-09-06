@@ -21,12 +21,12 @@ Run property.py
 - metric
 - output dimension
 ```
-train_arguments.data_path = ["./tests/data/homo_train.csv"]
-train_arguments.save_path = "save_path"
-train_arguments.model_name = "model.pkl"
+train_arguments.data_path = ["./tests/data/TC_train.csv"]
+train_arguments.save_path = "./tests/TC"
+train_arguments.model_name = "TC.pkl"
 train_arguments.dataset_type = ["regression"]
 train_arguments.task_names = ["homo"]
-train_arguments.scaler_path = ["./tests/data/homo_scaler.csv"]
+train_arguments.scaler_path = ["./tests/data/TC_scaler.csv"]
 train_arguments.loss_function = ["mse"]
 train_arguments.loss_function = ["mse"]
 train_arguments.output_dim = [1]
@@ -80,10 +80,10 @@ train_arguments.early_stopping = 50
 - metric
 - output dimension
 ```
-test_arguments.data_path = ["./tests/data/homo_test.csv"]
-test_arguments.save_path = ["homo_test_pred.csv"]
-test_arguments.model_path = "model.pkl"
-test_arguments.task_names = ["homo"]
+test_arguments.data_path = ["./tests/data/TC_test.csv"]
+test_arguments.save_path = ["TC_test_pred.csv"]
+test_arguments.model_path = "TC.pkl"
+test_arguments.task_names = ["TC"]
 test_arguments.dataset_type = ["regression"]
 test_arguments.loss_function = ["mse"]
 test_arguments.metric = ["mse"]
