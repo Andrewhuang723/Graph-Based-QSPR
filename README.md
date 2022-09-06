@@ -49,7 +49,7 @@ train_arguments.output_dim = [1]
 - is explicit H: whether the molecule structure considered hydrogens or not, default = True.
 - selective sampling: conditions of selective sampling,
 
-  (1) M: percentage of dataset selected for each round, default = 0.2.
+  (1) M: portion of dataset selected for each round, default = 0.2.
   
   (2) N: number of rounds, default = 5.
   
