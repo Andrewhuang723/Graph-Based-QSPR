@@ -46,7 +46,8 @@ train_arguments.output_dim = [1]
 - load graphs path: load the file path of saved graphs. (No need to convert SMILES to Moleule graphs.)
 - NN: The type of Graph Neural Networks (MPNN, Set2SetNN, ReadoutNN, NN), default = MPNN. 
 - is explicit H: whether the molecule structure considered hydrogens or not, default = True.
-- selective sampling: conditions of selective sampling, 
+- selective sampling: conditions of selective sampling,
+
   (1) M: percentage of dataset selected for each round, default = 0.2.
   
   (2) N: number of rounds, default = 5.
