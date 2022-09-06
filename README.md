@@ -29,7 +29,7 @@ train_arguments.loss_function = ["mse"]
 train_arguments.loss_function = ["mse"]
 train_arguments.output_dim = [1]
 ```
- *csv format of training (or testing) dataset file:
+ * csv format of training (or testing) dataset file:
 
 | smiles                             | homo         | 
 | ---------------------------------- | ------------ | 
