@@ -47,9 +47,9 @@ train_arguments.output_dim = [1]
 - NN: The type of Graph Neural Networks (MPNN, Set2SetNN, ReadoutNN, NN), default = MPNN. 
 - is explicit H: whether the molecule structure considered hydrogens or not, default = True.
 - selective sampling: conditions of selective sampling, 
-  -- M: percentage of dataset selected for each round, default = 0.2.
-  -- N: number of rounds, default = 5.
-  -- task: the selected property.
+  -> M: percentage of dataset selected for each round, default = 0.2.
+  -> N: number of rounds, default = 5.
+  -> task: the selected property.
 - epoch: default = 1000.
 - lr: learning rate, default = 0.0005.
 - batch size: default = 128.
