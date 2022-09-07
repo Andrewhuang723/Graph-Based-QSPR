@@ -8,7 +8,7 @@ A Deep Learning QSPR using graph neural networks for molecular property predicti
 Predicted molecular properties:
 
 - Solvent properties: Solubility parameters (Delta), Sigma profile, activity coefficients (gamma).
-- Thermodynamic properties: Standard enthalpy, Standard entropy, Standard Heat of formation, Standard Heat of formation, Critical temperature (TC), Boiling temperature (TB)
+- Thermodynamic properties: Standard enthalpy, Standard entropy, Standard Heat of formation, Standard Heat of fusion, Critical temperature (TC), Boiling temperature (TB)
 - Electronic properties: Highest Occupied Molecular Orbitals (HOMO), Lowest Unoccupied Molecular Orbitals (LUMO), Dipole moment, Polarizability.
 
 ## Usage:
@@ -49,8 +49,8 @@ train_arguments.output_dim = [1]
 | CCCCOC(=O)C(Cl)Cl           | 655.0 |
 
 **Other training arguments**
-- save graphs path: save the file path of graphs according to training samples (compounds).
-- load graphs path: load the file path of saved graphs. (No need to convert SMILES to Moleule graphs.)
+- save graphs path: save converted gaphs to file path according to training samples (compounds).
+- load graphs path: load converted gaphs from file path. (No need to convert SMILES to molecule graphs, save time!)
 - NN: The type of Graph Neural Networks (MPNN, Set2SetNN, ReadoutNN, NN), default = MPNN. 
 - is explicit H: whether the molecule structure considered hydrogens or not, default = True.
 - selective sampling: conditions of selective sampling,
