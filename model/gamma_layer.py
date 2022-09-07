@@ -1,4 +1,4 @@
-# Derived from https://github.com/usnistgov/COSMOSAC
+# from https://github.com/usnistgov/COSMOSAC
 import pandas as pd
 import numpy as np
 import torch
