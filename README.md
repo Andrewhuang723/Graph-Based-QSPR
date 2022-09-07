@@ -109,4 +109,4 @@ test_arguments.load_graphs_path = "test_graphs.bin"
 
 Example: 
 
-results directory: <a href="./tests/TC"> TC results directory</a>
+<a href="./tests/TC"> TC results directory</a>
