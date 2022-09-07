@@ -5,6 +5,12 @@ A Deep Learning QSPR using graph neural networks for molecular property predicti
 <img src="./docs/diagram.png", width="1000"/>
 </p>
 
+Predicted molecular properties:
+
+- Solvent properties: Solubility parameters (Delta), Sigma profile, activity coefficients (gamma).
+- Thermodynamic properties: Standard enthalpy, Standard entropy, Standard Heat of formation, Standard Heat of formation, Critical temperature (TC), Boiling temperature (TB)
+- Electronic properties: Highest Occupied Molecular Orbitals (HOMO), Lowest Unoccupied Molecular Orbitals (LUMO), Dipole moment, Polarizability.
+
 ## Usage:
 
 Run property.py
