@@ -98,8 +98,8 @@ test_arguments.metric = ["mse"]
 ```
 
 **Other testing arguments**
-- save graphs path: save the file path of graphs according to testing samples (compounds).
-- load graphs path: load the file path of saved graphs.
+- save graphs path: save converted gaphs to file path according to testing samples (compounds).
+- load graphs path: load converted gaphs from file path.
 
 ```
 test_arguments.load_graphs_path = "test_graphs.bin"
