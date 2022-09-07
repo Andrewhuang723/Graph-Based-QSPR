@@ -1,3 +1,4 @@
+# Derived from https://github.com/usnistgov/COSMOSAC
 import pandas as pd
 import numpy as np
 import torch
@@ -16,13 +17,6 @@ EO = 2.395e-4
 FPOL = (EPS - 1.0) / (EPS + 0.5)
 ALPHA = (0.3 * AEFFPRIME ** (1.5)) / (EO)
 alpha_prime = FPOL * ALPHA
-
-
-# sigma_tabulated = np.linspace(-0.03, 0.03, 61)
-# sigma_m = np.tile(sigma_tabulated,(len(sigma_tabulated),1))
-# sigma_n = np.tile(np.array(sigma_tabulated, ndmin=2).T, (1, len(sigma_tabulated)))
-# sigma_acc = np.tril(sigma_n) + np.triu(sigma_m, 1)
-# sigma_don = np.tril(sigma_m) + np.triu(sigma_n, 1)
 
 sigma_tabulated = torch.arange(-0.03, 0.031, 0.001)
 sigma_m = sigma_tabulated.repeat((len(sigma_tabulated), 1))
