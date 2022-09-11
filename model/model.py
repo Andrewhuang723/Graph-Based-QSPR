@@ -449,6 +449,3 @@ class ReadoutNN(nn.Module):
         if output_hidden_states:
             return predict, out
         return predict
-
-        return predict
-
